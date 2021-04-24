@@ -35,7 +35,11 @@ public class AlgoResultScreen {
 	}
 	
 	static int[] getArray() {
-		return arr;
+		int[] newArr = new int[arr.length];
+		for(int i=0;i<arr.length;i++){
+			newArr[i]=arr[i];
+		}
+		return newArr;
 	}
 	
     public static void readNumbersFromFile(String fileName) {
@@ -215,7 +219,7 @@ public class AlgoResultScreen {
 		
 					Thread threadForPerformance1 = new Thread() {
 						public void run() {
-							selectionSortTime.setText("selectionSort(arr);");
+							selectionSortTime.setText(Long.toString(SortierAlgorithmen.selectionSort(AlgoResultScreen.getArray()))+"ns");
 							return;
 						}
 					};
@@ -271,7 +275,7 @@ public class AlgoResultScreen {
 					
 					Thread threadForPerformance3 = new Thread() {
 						public void run() {
-							mergeSortTime.setText("mergeSort(arr);");
+							mergeSortTime.setText(Long.toString(SortierAlgorithmen.mergeSort(AlgoResultScreen.getArray()))+"ns");
 							return;
 						}
 					};
@@ -299,7 +303,7 @@ public class AlgoResultScreen {
 					
 					Thread threadForPerformance4 = new Thread() {
 						public void run() {
-							quickSortTime.setText("quickSort(arr);");
+							quickSortTime.setText(Long.toString(SortierAlgorithmen.quickSort(AlgoResultScreen.getArray()))+"ns");
 							return;
 						}
 					};
